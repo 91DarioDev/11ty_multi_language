@@ -1,0 +1,15 @@
+<h1>Ultimi post</h1>
+
+{% include "postslist.njk" %}
+
+{% if pagination.pageLinks.length > 1 %}
+<nav class="pagination">
+  {% if pagination.previousPageLink %}
+    <a class="pagination__item" href="{{ pagination.previousPageHref | url }}">Newer Articles</a>
+  {% endif %}
+
+  {% if pagination.nextPageLink %}
+    <a class="pagination__item" href="{{ pagination.nextPageHref | url }}">Older Articles</a>
+  {% endif %}
+</nav>
+{% endif %}

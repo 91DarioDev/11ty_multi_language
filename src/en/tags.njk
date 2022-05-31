@@ -1,0 +1,27 @@
+---js
+{
+  pagination: {
+    data: "collections.posts",
+    before: function(paginationData, fullData) {
+      console.log(paginationData);
+      return [];
+    },
+    size: 1,
+    alias: "tag",
+    filter: [
+      "all",
+      "nav",
+      "post",
+      "posts",
+      "tagList"
+    ],
+    addAllPagesToCollections: true,
+  },
+  layout: "layouts/home.njk",
+  eleventyComputed: {
+    title: "Tagged “{{ tag }}”"
+  },
+  permalink: "{{locale}}/tags/{{ tag | slug }}/{% if pagination.pageNumber > 0 %}/{{ pagination.pageNumber + 1 }}/{% endif %}"
+}
+---
+{% include "tags_template.njk" %}

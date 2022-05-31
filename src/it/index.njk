@@ -1,0 +1,13 @@
+---
+layout: layouts/home.njk
+permalink: "{{locale}}/{% if pagination.pageNumber > 0 %}/{{ pagination.pageNumber + 1 }}/{% endif %}"
+eleventyComputed:
+    title: "Il mio blog{% if pagination.pageNumber > 0 %} #{{ pagination.pageNumber + 1 }}{% endif %}"
+pagination:
+  data: collections._posts_it
+  size: 2
+  alias: postslist
+  reverse: true
+---
+
+{% include "index_template.njk" %}

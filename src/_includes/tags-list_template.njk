@@ -1,0 +1,6 @@
+<h1>Tags</h1>
+
+{% for tag in tagsToAppend %}
+  {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+  <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+{% endfor %}
